@@ -1,0 +1,14 @@
+C:\Test\Logger\bin\Debug\net6.0\Logger.exe
+C:\Test\Logger\bin\Debug\net6.0\Logger.deps.json
+C:\Test\Logger\bin\Debug\net6.0\Logger.runtimeconfig.json
+C:\Test\Logger\bin\Debug\net6.0\Logger.dll
+C:\Test\Logger\bin\Debug\net6.0\Logger.pdb
+C:\Test\Logger\obj\Debug\net6.0\Logger.GeneratedMSBuildEditorConfig.editorconfig
+C:\Test\Logger\obj\Debug\net6.0\Logger.AssemblyInfoInputs.cache
+C:\Test\Logger\obj\Debug\net6.0\Logger.AssemblyInfo.cs
+C:\Test\Logger\obj\Debug\net6.0\Logger.csproj.CoreCompileInputs.cache
+C:\Test\Logger\obj\Debug\net6.0\Logger.dll
+C:\Test\Logger\obj\Debug\net6.0\refint\Logger.dll
+C:\Test\Logger\obj\Debug\net6.0\Logger.pdb
+C:\Test\Logger\obj\Debug\net6.0\Logger.genruntimeconfig.cache
+C:\Test\Logger\obj\Debug\net6.0\ref\Logger.dll
