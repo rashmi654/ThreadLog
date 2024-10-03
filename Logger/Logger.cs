@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Logger
@@ -30,15 +31,16 @@ namespace Logger
                 Console.WriteLine("directory created");
             }
 
+            File.WriteAllText(fileName, $"0, 0, {DateTime.Now.ToString("HH:MM:ss:fff")}\n");
+            
+
             for (int i = 0; i < threadCount; i++)
             {
-                String date = DateTime.Now.ToString("HH:MM:ss:mmm");
-
                 Thread thread = new Thread(() => { dosomework(); });
                 thread.Start();
             }
 
-            
+          
             WriteToFile();
             Console.ReadKey();
         }
@@ -51,7 +53,7 @@ namespace Logger
                 lock (locker)
                 {
                     lineNumber++;
-                    String date = DateTime.Now.ToString("HH:MM:ss:mmm");
+                    String date = DateTime.Now.ToString("HH:MM:ss:fff");
                     int threadid = Thread.CurrentThread.ManagedThreadId;
                     queue.Enqueue($"{lineNumber}, {threadid}, {date}");
                     
@@ -63,14 +65,14 @@ namespace Logger
             
         }
 
-        private async void WriteToFile()
+        private void WriteToFile()
         {
             using (StreamWriter sw = File.AppendText(fileName))
             {
+               
                 while (queue.TryDequeue(out string logLine))
                 {
-                    Console.WriteLine(logLine);
-                    await sw.WriteLineAsync(logLine);
+                    sw.WriteLine(logLine);
                 }
             }
         }
