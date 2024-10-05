@@ -10,14 +10,17 @@ namespace Logger
              List<IWriterThread> writerThreads = new List<IWriterThread>();
 
             IFileWriter fileWriter = new FileWriter();
-            fileWriter.Initialize("/log/out.text");
+            fileWriter.Initialize("/log/out.txt");
 
             for (int i = 0; i < numThreads; i++)
             {
-
                 IWriterThread wThread = new WriterThread(fileWriter);
-                wThread.Run();
                 writerThreads.Add(wThread);
+            }
+
+            foreach (IWriterThread wThread in writerThreads)
+            {
+                wThread.Run();
             }
 
             foreach (IWriterThread thread in writerThreads)
@@ -28,7 +31,6 @@ namespace Logger
                     Console.WriteLine($"Thread failed with error:{thread.Exception.Message} ");
                 }
             }
-            
             Console.Write("Press any key to continue...");
             Console.Read();
 

@@ -25,7 +25,6 @@ namespace Logger
             {
                 if (_initialized) return;
 
-
                 try
                 {
                     string? directoryName = Path.GetDirectoryName(filePath);
@@ -60,14 +59,13 @@ namespace Logger
             {
                 throw new Exception("Initialize call missing.");
             }
-           
             lock (_writeLock)
             {
                 try
                 {
                     _lineNumber++;
-                    string date = DateTime.Now.ToString("HH:mm:ss:fff");
                     int threadid = Thread.CurrentThread.ManagedThreadId;
+                    string date = DateTime.Now.ToString("HH:mm:ss:fff");
                     string log = $"{_lineNumber}, {threadid}, {date} {Environment.NewLine}";
                     File.AppendAllText(_filePath, log);
                 }
